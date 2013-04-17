@@ -1,0 +1,21 @@
+<head>
+	<title>Carpool</title>
+</head>
+
+<body>
+	{{loginButtons}}
+	{{> Router}}
+</body>
+
+<template name="Router">
+	{{#if currentUser}}
+		{{#if current_page "home"}}
+			{{> TripForm}}
+			{{> TripList}}
+		{{/if}}
+
+		{{#if current_page "users"}}
+			{{> UserList}}
+		{{/if}}
+	{{/if}}
+</template>

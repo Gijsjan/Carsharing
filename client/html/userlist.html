@@ -1,0 +1,7 @@
+<template name="UserList">
+	<ul id="users">
+	{{#each users}}
+		<li class="user" data-id={{_id}}>{{profile.name}} || {{services.google.email}}</li>
+	{{/each}}
+	</ul>
+</template>

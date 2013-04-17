@@ -1,0 +1,8 @@
+<!-- TODO: make box layout -->
+<template name="TripList">
+	<ul id="trips">
+	{{#each trips}}
+		<li class="trip" data-id={{_id}}>{{date}} || {{time}} || {{previous_mileage}} || {{current_mileage}}||{{given_names occupants}}</li>
+	{{/each}}
+	</ul>
+</template>

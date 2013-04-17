@@ -1,0 +1,26 @@
+<template name="TripForm">
+	<form id="trip">
+		<label for="date">Date</label>
+		<label for="time">Time</label>
+		<br>
+		<input type="date" name="date" id="date" value="{{date}}">
+		<input type="time" name="time" id="time" value="{{time}}">
+		<br>
+		
+		<label for="previous_mileage">Previous mileage</label>
+		<label for="current_mileage">Current mileage</label>
+		<br>
+		<input type="text" name="previous_mileage" id="previous_mileage">
+		<input type="text" name="current_mileage" id="current_mileage">
+		<br>
+		
+		<label>Occupants</label>
+		<br>
+		{{#each users}}
+			<input type="checkbox" value="{{_id}}" {{#if isCurrentUser _id}} checked {{/if}} name="occupants">{{profile.name}}
+		{{/each}}
+		<br>
+
+		<input type="submit" name="add" value="add">
+	</form>
+</template>
