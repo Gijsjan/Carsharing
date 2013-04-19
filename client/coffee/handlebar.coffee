@@ -1,6 +1,12 @@
-Handlebars.registerHelper 'date', -> moment().format('YYYY-MM-DD')
+Handlebars.registerHelper 'formatted_date', (date, time) -> 
+	moment(date + ' ' + time).format('MMMM Do YYYY, HH:mm')
 
-Handlebars.registerHelper 'time', -> moment().format('HH:mm')
+Handlebars.registerHelper 'from', (date, time) -> moment(date + ' ' + time).from()
+
+Handlebars.registerHelper 'date_now', -> moment().format('YYYY-MM-DD')
+Handlebars.registerHelper 'time_now', -> moment().format('HH:mm')
+
+Handlebars.registerHelper 'kms', (prev, curr) -> curr - prev
 
 Handlebars.registerHelper 'given_names', (userIds) ->
 	result = []

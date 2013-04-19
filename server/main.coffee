@@ -1,4 +1,9 @@
-Meteor.publish 'tripos', -> Trips.find()
+Meteor.publish 'tripos', ->
+	Trips.find(
+		{}, 
+		'sort': 
+			'current_mileage': -1
+	)
 Meteor.publish 'users', ->
 	Meteor.users.find()
 

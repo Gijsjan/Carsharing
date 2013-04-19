@@ -1,8 +1,13 @@
 <!-- TODO: make box layout -->
 <template name="TripList">
-	<ul id="trips">
+	<div id="triplist">
 	{{#each trips}}
-		<li class="trip" data-id={{_id}}>{{date}} || {{time}} || {{previous_mileage}} || {{current_mileage}}||{{given_names occupants}}</li>
+		<div class="row" title="On {{formatted_date date time}} from {{previous_mileage}}km to {{current_mileage}}km">
+			<div>{{from date time}}</div>
+			<div>{{kms previous_mileage current_mileage}}km</div>
+			<div>{{given_names occupants}}</div>
+			<div data-id={{_id}} class="remove"><img width="10px" height="14px" src="glyphicons_016_bin.png"></div>
+		</div>
+	</div>
 	{{/each}}
-	</ul>
 </template>

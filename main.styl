@@ -1,17 +1,47 @@
 body
 	margin 0
-	background-color grey
+	padding 20px
+	background-color rgb(219, 219, 219)
 
-#grid
-	max-width 960px
-	min-width 760px
-
-.row
+div.row
 	display -webkit-box
-	-webkit-box-orient horizontal	
-	background-color blue
+	width 300px
+	margin-bottom 12px
 
-.column
-	display -webkit-box
-	-webkit-box-orient vertical
-	background-color green
+div.row.withsibling
+	margin 0
+
+div.remove
+	cursor pointer
+
+input, label, div
+	display block
+	-webkit-box-flex 2
+
+input[type=checkbox]
+	display block
+	-webkit-box-flex 1
+
+input[type=time], input[type=date]
+	display -webkit-inline-flex
+
+#container
+	position: relative
+	width: 300px
+	height: 100%
+	z-index: 1
+
+#popup
+	width 12em
+	height 6em
+	top 50%
+	left 50%
+	position absolute
+	margin-left -7em
+	margin-top -5em
+	border-radius 10px
+	background-color rgb(148, 147, 147)
+	color white
+	padding 1em
+	box-shadow 4px 4px 10px rgb(80, 78, 78)
+	z-index 999
