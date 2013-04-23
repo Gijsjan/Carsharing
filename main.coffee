@@ -1,5 +1,6 @@
-@Trips = new Meteor.Collection "tripos"
-@userData = new Meteor.Collection "userData"
+@Trips = new Meteor.Collection "trips"
+@Reservations = new Meteor.Collection "reservations"
+# @userData = new Meteor.Collection "userData"
 
 ex =
 	first: ->
@@ -10,4 +11,5 @@ ex =
 		this.find().count()
 
 _.extend Trips, ex
-_.extend userData, ex
+_.extend Reservations, ex
+# _.extend userData, ex

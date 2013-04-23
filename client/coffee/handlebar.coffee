@@ -13,3 +13,9 @@ Handlebars.registerHelper 'given_names', (userIds) ->
 	users = Meteor.users.find '_id': '$in': userIds
 	_.each users.fetch(), (user) -> result.push(user.services.google.given_name)
 	result.join(', ')
+
+Session.set('reservation', false)
+Handlebars.registerHelper 'session_reservation', -> Session.get('reservation')
+
+Session.set('edit', false)
+Handlebars.registerHelper 'session_edit', -> Session.get('edit')

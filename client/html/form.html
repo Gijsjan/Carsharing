@@ -1,0 +1,54 @@
+<template name="TripForm">
+	<form id="trip">
+		<input type="hidden" name="id" id="id" value="">
+		<h2>
+			{{#if session_edit}}Edit{{else}}Add{{/if}}
+			{{#if session_reservation}} a reservation{{else}} a trip{{/if}}
+		</h2>
+		<div class="row withsibling">
+			<label for="date">From</label>
+			<input type="checkbox" name="multiple_days" id="multiple_days">
+			<label for="multiple_days" style="font-size: 0.75em">Multiple days</label>
+		</div>
+		
+		<div class="row">
+			<input type="date" name="date" id="date" value="{{date_now}}">
+			<input type="time" name="time" id="time" value="{{time_now}}">
+		</div>
+
+		<div id="until">
+			<div class="row withsibling">	
+				<span>Until</span>
+			</div>
+
+			<div class="row">
+				<input type="date" name="until_date" id="until_date" value="{{date_now}}">
+				<input type="time" name="until_time" id="until_time" value="{{time_now}}">
+			</div>
+		</div>
+
+		{{#if session_reservation}}
+		{{else}}
+		<div class="row withsibling">	
+			<label for="previous_mileage">Previous mileage</label>
+			<label for="current_mileage">Current mileage</label>
+		</div>
+
+		<div class="row">
+			<input type="text" name="previous_mileage" id="previous_mileage">
+			<input type="text" name="current_mileage" id="current_mileage">
+		</div>
+		{{/if}}
+		
+		<div class="row">
+			{{#each users}}
+				<input type="checkbox" value="{{_id}}" {{#if isCurrentUser _id}} checked {{/if}} name="occupants"><label>{{services.google.given_name}}</label>
+			{{/each}}
+		</div>
+			
+		<div class="row">
+			<input type="submit" name="add" value="{{#if session_edit}}Save{{else}}Add{{/if}}">
+			{{#if session_edit}}<input type="submit" name="cancel" value="Cancel">{{/if}}
+		</div>
+	</form>
+</template>

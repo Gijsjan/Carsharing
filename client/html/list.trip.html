@@ -1,0 +1,16 @@
+<!-- TODO: make box layout -->
+<template name="TripList">
+	<ul id="triplist">
+	{{#each trips}}
+		<li class="trip" title="Trip on {{formatted_date date time}} {{#if until_date}}until {{formatted_date until_date until_time}}{{/if}} from {{previous_mileage}}km to {{current_mileage}}km">
+			<div>{{from date time}}</div>
+			<div>{{kms previous_mileage current_mileage}}km</div>
+			<div>{{given_names occupants}}</div>
+			<menu data-id={{_id}} >
+				<img class="edit" src="glyphicons_030_pencil.png">
+				<img class="bin" src="glyphicons_016_bin.png">
+			</menu>
+		</li>
+	</ul>
+	{{/each}}
+</template>

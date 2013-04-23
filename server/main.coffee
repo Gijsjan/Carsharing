@@ -1,11 +1,12 @@
-Meteor.publish 'tripos', ->
-	Trips.find(
+Meteor.publish 'trips', -> Trips.find({}, 'sort': 'current_mileage': -1)
+Meteor.publish 'reservations', ->
+	Reservations.find(
 		{}, 
 		'sort': 
-			'current_mileage': -1
+			'date': -1
+			'time': -1
 	)
-Meteor.publish 'users', ->
-	Meteor.users.find()
+Meteor.publish 'users', -> Meteor.users.find()
 
 
 	
@@ -17,6 +18,11 @@ Meteor.startup ->
 			return true
 	
 	Trips.allow
+		insert: -> true
+		update: -> true
+		remove: -> true
+
+	Reservations.allow
 		insert: -> true
 		update: -> true
 		remove: -> true
